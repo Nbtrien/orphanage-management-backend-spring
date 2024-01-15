@@ -1,0 +1,8 @@
+<p>Bạn có thể xem lịch sự kiện trên trang web của chúng tôi tại <a href='http://localhost:3001/volunteers/events'>Danh
+    sách sự kiện tình nguyện</a></p>
+<p>Một vài sự kiện bạn có thể tham khảo: </p>
+<div th:each="event : ${events}">
+    <p><b></b>Sự kiện: <span th:text="${event.title}"></span></b></p>
+    <p>Thời gian diễn ra: <span th:text="${event.eventStartDate}"></span></p>
+    <p>Xem chi tiết bài viết <a th:href="'http://localhost:3001/volunteers/events/' + ${event.eventId}">tại đây</a></p>
+</div>

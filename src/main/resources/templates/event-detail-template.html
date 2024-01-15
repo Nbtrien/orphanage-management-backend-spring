@@ -1,0 +1,4 @@
+<p>Sự kiện tình nguyện: <span th:text="${event.title}"></span></a></p>
+<p>Tổng quan sự kiện: <span th:text="${event.summary}"></span></p>
+<p>Thời gian diễn ra: <span th:text="${event.eventStartDate}"></span> ~ <span th:text="${event.eventEndDate}"></span></p>
+<p>Xem chi tiết bài viết <a th:href="'http://localhost:3001/volunteers/events/' + ${event.eventId}">tại đây</a></p>

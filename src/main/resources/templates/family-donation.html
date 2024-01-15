@@ -1,0 +1,8 @@
+<p>Bạn có thể xem thông tin về các gia đình nhận tài trợ trong trại trẻ của chúng tôi tại
+    <a href='http://localhost:3001/posts/families'>Danh
+        sách gia đình nhận tài trợ̣</a></p>
+<p>Một vài gia đình bạn có thể tham khảo: </p>
+<div th:each="family : ${families}">
+    <p><b></b>Gia đình: <span th:text="${family.familyName}"></span></b></p>
+    <p>Xem chi tiết bài viết <a th:href="'http://localhost:3001/donation/programs/' + ${family.familyName}">tại đây</a></p>
+</div>

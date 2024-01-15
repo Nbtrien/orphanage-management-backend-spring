@@ -1,0 +1,8 @@
+<p>Bạn có thể xem các chiến dịch tài trợ trên trang web của chúng tôi tại
+    <a href='http://localhost:3001/donation/programs'>Danh
+    sách chiến dịch tài trợ</a></p>
+<p>Một vài chiến dịch bạn có thể tham khảo: </p>
+<div th:each="program : ${programs}">
+    <p><b></b>Chiến dịch: <span th:text="${program.purpose}"></span></b></p>
+    <p>Xem chi tiết bài viết <a th:href="'http://localhost:3001/donation/programs/' + ${program.donationPurposeId}">tại đây</a></p>
+</div>

@@ -1,0 +1,116 @@
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# ===================================================================
+
+application:
+  token-url: http://localhost:8080
+  app-client-id: app_client
+  app-client-secret: app_secret
+  resource-id: resource_id
+  swagger-client-id: swagger_client
+  swagger-client-secret: swagger_secret
+
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overridden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# ===================================================================
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/orphanage_dev
+    username: root
+    password:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        enable_lazy_load_no_trans: true
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  flyway:
+    baseline-on-migrate: true
+  #  flyway:
+  #    locations: classpath:/db/migration
+  #    baseline-on-migrate: true
+  #    baseline-version : 0
+  batch:
+    jdbc:
+      initialize-schema: never
+    job:
+      enabled: false
+  main:
+    allow-bean-definition-overriding: true
+  task:
+    scheduling:
+      enabled: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 
+    password: 
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+
+  boilerplate:
+    mailservice:
+      enable: true
+  mvc:
+    dispatch-options-request: true
+    async:
+      request-timeout: 60000
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+
+# ===================================================================
+# Logger
+# ===================================================================
+
+logging:
+  level:
+    root: INFO
+
+
+aws:
+  accessKey: 
+  secretKey: 
+  region: us-east-1
+  s3:
+    bucket: 
+
+vnpay:
+  url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+  ipnUrl: https://a445-14-174-144-169.ngrok-free.app/api/donations/callback
+  tmnCode: 
+  hashSecret: 
+  vnpayVersion: 2.1.0
+
+ngrok:
+  enabled: true
+  authtoken: 
+
+infura:
+  url: https://mainnet.infura.io/v3/559d07466da94fcbb9202755f4e4b957
+web3j:
+  client-address: http://127.0.0.1:8545
+  http-service: http://127.0.0.1:8545
+
+dialogflow:
+  credentials:
+    project-id: 
+    language-code: vi

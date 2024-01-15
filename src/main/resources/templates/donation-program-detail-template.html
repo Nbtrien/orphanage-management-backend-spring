@@ -1,0 +1,6 @@
+<p>Chiến dịch tài trợ: <span th:text="${post.donationPurpose.purpose}"></span></a></p>
+<p>Tổng quan chiến dịch: <span th:text="${post.summary}"></span></p>
+<p>Xem chi tiết bài viết
+    <a th:href="'http://localhost:3001/donation/programs/' + ${post.donationPurpose.donationPurposeId}">tại đây.</a></p>
+<p>Tài trợ cho chiến dịch tại đây
+    <a th:href="'http://localhost:3001/donation?programId=' + ${post.donationPurpose.donationPurposeId}">Tài trợ ngay.</a></p>

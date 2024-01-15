@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:dates="http://www.thymeleaf.org/extras/dates"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            width: 200px;
+            padding: 10px;
+            text-align: left;
+            border: 1px black solid;
+        }
+
+        .title {
+            font-weight: 600;
+        }
+
+        .label {
+            font-weight: normal;
+        }
+
+        .header-table td {
+            width: unset;
+            border: none;
+            height: 70px;
+            padding: 0px;
+        }
+
+        .header-title {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .update-date {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <table class="header-table">
+        <tr>
+            <td colspan="1">
+                <div class="header-logo">
+                    <img
+                            src="http://localhost/Graduate-project/graduate-frontend/src/assets/brand/logo.png"
+                    />
+                </div>
+            </td>
+            <td colspan="2" class="header-title">
+                <div>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                <div>Độc lập – Tự do – Hạnh phúc</div>
+            </td>
+        </tr>
+    </table>
+    <div class="update-date">
+        <i
+                th:utext="'Đà Nẵng, Ngày ' + ${#dates.format(dateOfApplication, 'dd')} + ' tháng ' + ${#dates.format(dateOfApplication, 'MM')} + ' năm ' + ${#dates.format(dateOfApplication, 'yyyy')}"
+        ></i>
+    </div>
+    <br/>
+    <h2>ĐƠN ĐĂNG KÝ NHẬN THÔNG TIN TRẺ ĐANG CHỜ NHẬN NUÔI</h2>
+    <h3>Thông tin người đăng ký</h3>
+    <table>
+        <tr>
+            <td class="title"></td>
+            <td class="title" colspan="2">
+                <span th:if="${applicant.applicantGender == 'Nam'}">Ông</span>
+                <span th:if="${applicant.applicantGender == 'Nữ'}">Bà</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Họ và tên</td>
+            <td class="label" colspan="2" th:text="${applicant.applicantFullName}"></td>
+        </tr>
+        <tr>
+            <td class="label">Ngày, tháng, năm sinh</td>
+            <td class="label" colspan="2">
+            <span
+                    th:text="${#dates.format(applicant.applicantDateOfBirth, 'dd/MM/yyyy')}"
+            ></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Quốc tịch</td>
+            <td class="label" colspan="2" th:text="${applicant.applicantNationality}"></td>
+        </tr>
+        <tr>
+            <td class="label">Dân tộc</td>
+            <td class="label" colspan="2" th:text="${applicant.applicantEthnicity}"></td>
+        </tr>
+        <tr>
+            <td class="label">Tôn giáo</td>
+            <td class="label" colspan="2" th:text="${applicant.applicantReligion}"></td>
+        </tr>
+        <tr>
+            <td class="label">Số điện thoại</td>
+            <td class="label" colspan="2" th:text="${applicant.applicantPhoneNumber}"></td>
+        </tr>
+        <tr>
+            <td class="label">Địa chỉ email</td>
+            <td class="label" colspan="2" th:text="${applicant.applicantMailAddress}"></td>
+        </tr>
+        <tr>
+            <td class="label">Địa chỉ liên hệ</td>
+            <td class="label" colspan="2" th:text="${applicant.address}"></td>
+        </tr>
+        <tr>
+            <td class="label">Số căn cước công dân</td>
+            <td class="label" colspan="2" th:text="${applicant.citizenIdNumber}"></td>
+        </tr>
+    </table>
+    <h3>Thông tin đơn đăng ký</h3>
+    <p>
+        Ngày đăng ký:
+        <span
+                th:text="${#dates.format(dateOfApplication, 'dd/MM/yyyy')}"
+        ></span>
+    </p>
+    <p>Lý do: <span th:text="${reason}"></span></p>
+</div>
+</body>
+</html>

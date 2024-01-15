@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:dates="http://www.thymeleaf.org/extras/dates"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      h2,
+      h3 {
+        text-align: center;
+        margin-bottom: 0px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      tr {
+        page-break-inside: avoid;
+      }
+
+      td,
+      th {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid black;
+      }
+      th {
+        white-space: nowrap;
+      }
+
+      td.td-img {
+        width: 150px;
+        white-space: nowrap;
+      }
+
+      td.td-img img {
+        object-fit: cover;
+        width: 145px;
+        height: 180px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .title {
+        font-weight: 600;
+      }
+
+      .label {
+        font-weight: normal;
+      }
+      .td-date {
+        white-space: nowrap;
+      }
+      .update-date {
+        float: right;
+      }
+      .text-nowrap {
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>DANH SÁCH TRẺ EM CẦN TÌM NGƯỜI NHẬN LÀM CON NUÔI</h2>
+      <span class="update-date">
+        <i
+          th:utext="'(Cập nhật lúc: ' + ${#dates.format(currentDate, 'dd/MM/yyyy')} + ')'"
+        ></i>
+      </span>
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Họ và tên</th>
+            <th>Ảnh trẻ</th>
+            <th>Giới tính</th>
+            <th>Ngày sinh</th>
+            <th>Hoàn cảnh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="child, iterStat : ${children}">
+            <td class="label" th:text="${iterStat.index + 1}"></td>
+            <td
+              class="label text-nowrap"
+              th:text="${child.childrenFullName}"
+            ></td>
+            <td class="label td-img">
+              <img th:src="${child.imageUrl}" alt="Child Image" />
+            </td>
+            <td class="label" th:text="${child.childrenGender}"></td>
+            <td
+              class="label td-date"
+              th:text="${#dates.format(child.childrenDateOfBirth, 'dd/MM/yyyy')}"
+            ></td>
+            <td class="label" th:text="${child.orphanType}"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <b> Các thông tin liên hệ: Làng trẻ em SOS Đà Nẵng: </b>
+      </p>
+      <p>
+        <b>
+          Địa chỉ: K142 đường Lê Văn Hiến, Phường Khuê Mỹ, Quận Ngũ Hành Sơn, Đà
+          Nẵng
+        </b>
+      </p>
+      <p><b>Email: orphanage@gmail.com.</b></p>
+      <p><b>Số điện thoại: 0123456789 (tư vấn miễn phí)</b></p>
+    </div>
+  </body>
+</html>

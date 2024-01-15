@@ -1,0 +1,60 @@
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# ===================================================================
+
+application:
+  token-url:
+  app-client-id:
+  app-client-secret:
+  swagger-client-id:
+  swagger-client-secret:
+
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overridden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# ===================================================================
+
+spring:
+  datasource:
+    url:
+    username:
+    password:
+
+  jpa:
+    properties:
+      hibernate:
+        dialect:
+        enable_lazy_load_no_trans: true
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  flyway:
+    locations: classpath:/db/migration
+
+# ===================================================================
+# Logger
+# ===================================================================
+
+logging:
+  level:
+    root: INFO
+
+# ===================================================================
+# JSON Web Token
+# ===================================================================
+
+jwt:
+  signing-key:
+  access-token-validity-seconds: 3600 # 1 hour
+  refresh-token-validity-seconds: 86400 # 1 day

@@ -1,0 +1,6 @@
+<p>Gia đìnḥ: <span th:text="${post.family.familyName}"></span></a></p>
+<p>Sơ lược về gia đình: <span th:text="${post.summary}"></span></p>
+<p>Xem chi tiết bài viết về gia đình
+    <a th:href="'http://localhost:3001/posts/families/' + ${post.family.familyId}+'/'+${post.family.familyName}">tại đây.</a></p>
+<p>Tài trợ cho gia đình tại đây
+    <a th:href="'http://localhost:3001/donation?programId=2&familyId=' + ${post.family.familyId}">Tài trợ ngay.</a></p>
