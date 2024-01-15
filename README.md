@@ -13,9 +13,21 @@ The application leverages a set of technologies and libraries to provide a compr
 
 ## Explore Rest APIs
 
-### Auth
+### Authentication
 
 | Method | Url | Decription |
 | ------ | --- | ---------- |
-| POST   | /api/admin/register | Sign up |
-| POST   | /api/admin/login | Log in |
+| POST   | /api/admin/register | Sign up for admin|
+| POST   | /api/admin/login | Log in admin|
+| POST   | /api/register | Sign up for user|
+| POST   | /api/login | Log in user|
+
+### Children
+
+| Method | Url | Decription |
+| ------ | --- | ---------- |
+| POST   | /api/admin/children | Create new children|
+| GET    | /api/admin/children | Get children|
+| GET    | /api/admin/children/{id} | Get children by id|
+| PUT    | /api/admin/children/{id} | Update children information|
+| DELETE | /api/admin/children | Delete children|
