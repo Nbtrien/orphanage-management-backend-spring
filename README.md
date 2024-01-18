@@ -13,21 +13,15 @@ The application leverages a set of technologies and libraries to provide a compr
 
 ## Explore Rest APIs
 
-### Authentication
+The application provides API endpoints to manage children, employees, families, donations, volunteers, ...
+1. children: /api/admin/children
+2. Employees: /api/admin/employees
+3. Donations: /api/admin/donations
+4. Volunteers: /api/admin/volunteers
+5. Families: /api/admin/families
+6. Articles: /api/admin/articles, ...
 
-| Method | Url | Decription |
-| ------ | --- | ---------- |
-| POST   | /api/admin/register | Sign up for admin|
-| POST   | /api/admin/login | Log in admin|
-| POST   | /api/register | Sign up for user|
-| POST   | /api/login | Log in user|
-
-### Children
-
-| Method | Url | Decription |
-| ------ | --- | ---------- |
-| POST   | /api/admin/children | Create new children|
-| GET    | /api/admin/children | Get children|
-| GET    | /api/admin/children/{id} | Get children by id|
-| PUT    | /api/admin/children/{id} | Update children information|
-| DELETE | /api/admin/children | Delete children|
+The application provides API endpoints to user can search information in website, donate to orphanage, ...
+1. Donate: /api/donation
+2. Articles: /api/articles
+3. Adoption: /api/adoption, ...
